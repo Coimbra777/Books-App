@@ -7,11 +7,15 @@ const livros = require("./livros");
 
 app.use("/livros", livros);
 
+// Middleware para análise do corpo
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Middleware
-const log = (req, res, next) => {
+function log(req, res, next) {
   console.log(`...Acessado em ${new Date()}`);
   next();
-};
+}
 
 app.get("/transfere", log, (req, res) => {
   res.send("Ok! Valor transferido com sucesso...!");
