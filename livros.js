@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const dbKnex = require("./data/db_config");
-const cors = require("cors");
 
 // Rota para listar todos os livros (GET)
 router.get("/", async (req, res) => {
@@ -17,6 +16,7 @@ router.get("/", async (req, res) => {
 
 // Rota para criar um novo livro (POST)
 router.post("/", async (req, res) => {
+  console.log(req.body);
   const { titulo, autor, ano, foto } = req.body;
 
   if (!titulo || !autor || !ano || !foto) {
@@ -85,5 +85,3 @@ router.get("/filtro/:palavra", async (req, res) => {
 });
 
 module.exports = router;
-
-router.use(cors());

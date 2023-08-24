@@ -14,18 +14,7 @@ const InclusãoLivros = () => {
       const response = await inAxios.post("livros", campos);
       setAviso(`Ok! Livro cadastrado com código ${response.data.id}`);
     } catch (error) {
-      if (error.response) {
-        // Erro de resposta do servidor (código de status diferente de 2xx)
-        console.error(error.response.data);
-        console.error(error.response.status);
-        console.error(error.response.headers);
-      } else if (error.request) {
-        // A solicitação foi feita, mas não houve resposta do servidor
-        console.error(error.request);
-      } else {
-        // Erro durante a configuração da solicitação
-        console.error("Erro ao configurar a solicitação:", error.message);
-      }
+      setAviso(`Erro... Livro não cadastrado: ${error}`);
     }
 
     // executa o comando após o tempo indicado
