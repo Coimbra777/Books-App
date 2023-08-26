@@ -2,12 +2,14 @@
 
 # CRUD de Cadastro de Livros
 
+Este é um simples sistema de CRUD (Create, Read, Update, Delete) para gerenciar informações sobre livros. O sistema permite que você crie, visualize, atualize e exclua registros de livros em um banco de dados.
+
 ![Captura de Tela (20)](https://github.com/Coimbra777/Books-App/assets/103074944/86dfcd34-a7c4-4349-bce3-3512086d248c)
 
 ![Captura de Tela (22)](https://github.com/Coimbra777/Books-App/assets/103074944/6d0e6370-c111-4306-bf7b-5f247522efc9)
 
 
-Este é um simples sistema de CRUD (Create, Read, Update, Delete) para gerenciar informações sobre livros. O sistema permite que você crie, visualize, atualize e exclua registros de livros em um banco de dados.
+
 
 ## Tecnologias Utilizadas
 
