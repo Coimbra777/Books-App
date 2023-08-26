@@ -19,9 +19,7 @@ const MenuSuperior = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/resumo" className="nav-link">
-              Resumo
-            </Link>
+            <Link to="/resumo" className="nav-link"></Link>
           </li>
         </ul>
       </div>
