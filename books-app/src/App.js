@@ -1,13 +1,19 @@
-import MenuSuperior from "./components/MenuSuperior.js";
-import InclusãoLivros from "./components/InclusãoLivros.js";
+import { Routes, Route } from "react-router-dom";
+import MenuSuperior from "./components/MenuSuperior";
+import InclusaoLivros from "./components/InclusaoLivros";
+import ManutencaoLivros from "./components/ManutencaoLivros";
+import ResumoLivros from "./components/ResumoLivros";
 
 const App = () => {
   return (
-    <div>
+    <>
       <MenuSuperior />
-      <InclusãoLivros />
-    </div>
+      <Routes>
+        <Route path="/" element={<InclusaoLivros />} />
+        <Route path="manut" element={<ManutencaoLivros />} />
+        <Route path="resumo" element={<ResumoLivros />} />
+      </Routes>
+    </>
   );
 };
-
 export default App;
