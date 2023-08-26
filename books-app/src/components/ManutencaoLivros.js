@@ -27,6 +27,18 @@ const ManutencaoLivros = () => {
     }
   };
 
+  const excluir = async (id, titulo) => {
+    if (!window.confirm(`Confirma a exclusão do livro "${titulo}" ? `)) {
+      return;
+    }
+    try {
+      await inAxios.delete(`livros/${id}`);
+      setLivros(livros.filter((livro) => livro.id !== id));
+    } catch (error) {
+      alert(`Erro ... Não foi possível excluir esse livro : ${error}`);
+    }
+  };
+
   useEffect(() => {
     obterLista();
   }, []);
@@ -71,7 +83,8 @@ const ManutencaoLivros = () => {
             <th>Cód.</th>
             <th>Título</th>
             <th>Autor</th>
-            <th>Foto</th>
+            <th>ano</th>
+            {/* <th>Foto</th> */}
             <th>Ações</th>
           </tr>
         </thead>
@@ -82,7 +95,9 @@ const ManutencaoLivros = () => {
               id={livro.id}
               titulo={livro.titulo}
               autor={livro.autor}
-              foto={livro.foto}
+              ano={livro.ano}
+              // foto={livro.foto}
+              excluirClick={() => excluir(livro.id, livro.titulo)}
             />
           ))}
         </tbody>

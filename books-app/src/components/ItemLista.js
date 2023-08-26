@@ -1,15 +1,25 @@
 import React from "react";
 import "./ItemLista.css";
 
-const ItemLista = (props) => {
+const ItemLista = ({ id, titulo, autor, ano, foto, excluirClick }) => {
   return (
     <tr>
-      <td>{props.id}</td>
-      <td>{props.titulo}</td>
-      <td>{props.autor}</td>
-      <td>{props.ano}</td>
-      <td className="text-center">
-        <img src={props.foto} alt="Capa do Livro" width="75"></img>
+      <td>{id}</td>
+      <td>{titulo}</td>
+      <td>{autor}</td>
+      <td>{ano}</td>
+      {/* <td>
+        <img src={foto} alt="Capa do Livro" width="75" />
+      </td> */}
+      <td>
+        <i
+          className="excluir text-danger"
+          fw-bold
+          title="Excluir"
+          onClick={excluirClick}
+        >
+          &#10008;
+        </i>
       </td>
     </tr>
   );
