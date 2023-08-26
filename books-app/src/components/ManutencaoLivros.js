@@ -5,13 +5,13 @@ import { useForm } from "react-hook-form";
 
 const ManutencaoLivros = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [livros, setLivro] = useState([]);
+  const [livros, setLivros] = useState([]);
 
   const filtrarLista = async (campos) => {
     try {
       const lista = await inAxios.get(`livros/filtro/${campos.palavra}`);
-      lista.data.lenght
-        ? setLivro(lista.data)
+      lista.data.length
+        ? setLivros(lista.data)
         : alert("Não há livros com a palavra-chave pesquisada");
     } catch (error) {
       alert(`Erro... Não foi possível obter os dados: ${error}`);
@@ -21,7 +21,7 @@ const ManutencaoLivros = () => {
   const obterLista = async () => {
     try {
       const lista = await inAxios.get("livros");
-      setLivro(lista.data);
+      setLivros(lista.data);
     } catch (error) {
       alert(`Erro... Não foi possível obter os dados: ${error}`);
     }
@@ -52,7 +52,15 @@ const ManutencaoLivros = () => {
                 className="btn btn-primary"
                 value="Pesquisar"
               />
-              <input type="button" className="btn btn-danger" value="Todos" />
+              <input
+                type="button"
+                className="btn btn-danger"
+                value="Todos"
+                onClick={() => {
+                  reset({ palavra: "" });
+                  obterLista();
+                }}
+              />
             </div>
           </form>
         </div>
